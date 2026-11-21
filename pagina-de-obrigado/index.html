@@ -50,17 +50,11 @@ footer{text-align:center;font-size:12px;color:#94a3b8;padding:20px 16px 10px}
 .pop{position:fixed;inset:0;z-index:50;background:rgba(15,23,42,.72);display:none;align-items:center;justify-content:center;padding:16px}
 .pop.on{display:flex;animation:fd .25s ease-out}
 @keyframes fd{from{opacity:0}to{opacity:1}}
-.pbox{position:relative;width:100%;max-width:420px;max-height:92vh;overflow:auto;background:#fff;border-radius:20px;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.35);animation:up .3s ease-out}
+.pimg{position:relative;width:100%;max-width:460px;animation:up .3s ease-out}
 @keyframes up{from{transform:translateY(30px) scale(.96)}to{transform:none}}
-.pbox .x{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;border:0;background:rgba(0,0,0,.55);color:#fff;font-size:20px;font-weight:900;cursor:pointer;line-height:1}
-.ptop{background:#dc2626;color:#fff;font-weight:900;font-size:15px;letter-spacing:.4px;padding:10px 44px 10px 12px;border-radius:20px 20px 0 0}
-.pbox img{display:block;width:100%;height:auto;aspect-ratio:800/396}
-.pin{padding:16px 18px 18px}
-.pin h3{font-size:22px;font-weight:900;line-height:1.2;margin-bottom:6px}
-.pin p{font-size:15px;color:#334155}
-.pin .chk{display:grid;gap:4px;text-align:left;list-style:none;margin:12px 0;font-weight:700;font-size:15px}
-.pin .cod{font-size:13px;font-weight:900;color:var(--g);margin:6px 0 12px}
-.pno{display:block;margin-top:12px;color:var(--mut);font-size:13px;background:none;border:0;text-decoration:underline;cursor:pointer;width:100%}
+.pimg img{display:block;width:100%;height:auto;border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.pimg .x{position:absolute;right:0;top:0;width:15%;aspect-ratio:1;border:0;background:transparent;cursor:pointer;font-size:0}
+.pno{display:block;margin:12px auto 0;color:#fff;font-size:14px;background:none;border:0;text-decoration:underline;cursor:pointer}
 </style>
 </head>
 <body>
@@ -96,24 +90,12 @@ footer{text-align:center;font-size:12px;color:#94a3b8;padding:20px 16px 10px}
 
 
 <!-- POP-UP DE NOVA OFERTA (aparece quando a pessoa tenta sair da página) -->
-<div class="pop" id="pop" role="dialog" aria-modal="true" aria-labelledby="popt">
-  <div class="pbox">
+<div class="pop" id="pop" role="dialog" aria-modal="true" aria-label="Oferta especial: Escova de Limpeza Elétrica 9 em 1">
+  <div class="pimg">
+    <!-- COLOQUE AQUI O LINK DA NOVA OFERTA (troque o # pelo link da Logzz da escova) -->
+    <a id="popbtn" href="#"><img src="../popup-escova.webp" width="900" height="822" alt="Escova de Limpeza Elétrica 9 em 1 recarregável — de R$199,90 por apenas R$97,38. Quero aproveitar"></a>
     <button class="x" type="button" aria-label="Fechar">×</button>
-    <div class="ptop">⚠️ ESPERA! OFERTA ESPECIAL PRA VOCÊ</div>
-    <img src="../escova.webp" width="800" height="396" alt="Escova de Limpeza Elétrica BrilhaPlus com refis">
-    <div class="pin">
-      <h3 id="popt">Escova de Limpeza Elétrica BrilhaPlus</h3>
-      <p>Já que você vai receber o seu aspirador, deixe também o banheiro, a cozinha e os azulejos brilhando, sem esforço.</p>
-      <ul class="chk">
-        <li>✅ Gira sozinha, sem fazer força</li>
-        <li>✅ Vem com vários refis de limpeza</li>
-        <li>✅ Limpa pia, box, azulejo e panelas</li>
-      </ul>
-      <p class="cod">🚚 PAGUE SÓ NA ENTREGA · FRETE GRÁTIS</p>
-      <!-- COLOQUE AQUI O LINK DA NOVA OFERTA (troque o # pelo link da Logzz) -->
-      <a class="btn" id="popbtn" href="#">Quero aproveitar a oferta</a>
-      <button class="pno" type="button">Não, obrigado</button>
-    </div>
+    <button class="pno" type="button">Não, obrigado</button>
   </div>
 </div>
 
