@@ -47,6 +47,20 @@ h2{font-size:clamp(21px,5.5vw,26px);text-align:center;font-weight:900;margin:28p
 .wafloat{position:fixed;right:14px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:31;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.25)}
 .wafloat svg{width:32px;height:32px;fill:#fff}
 footer{text-align:center;font-size:12px;color:#94a3b8;padding:20px 16px 10px}
+.pop{position:fixed;inset:0;z-index:50;background:rgba(15,23,42,.72);display:none;align-items:center;justify-content:center;padding:16px}
+.pop.on{display:flex;animation:fd .25s ease-out}
+@keyframes fd{from{opacity:0}to{opacity:1}}
+.pbox{position:relative;width:100%;max-width:420px;max-height:92vh;overflow:auto;background:#fff;border-radius:20px;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.35);animation:up .3s ease-out}
+@keyframes up{from{transform:translateY(30px) scale(.96)}to{transform:none}}
+.pbox .x{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;border:0;background:rgba(0,0,0,.55);color:#fff;font-size:20px;font-weight:900;cursor:pointer;line-height:1}
+.ptop{background:#dc2626;color:#fff;font-weight:900;font-size:15px;letter-spacing:.4px;padding:10px 44px 10px 12px;border-radius:20px 20px 0 0}
+.pbox img{display:block;width:100%;height:auto;aspect-ratio:800/396}
+.pin{padding:16px 18px 18px}
+.pin h3{font-size:22px;font-weight:900;line-height:1.2;margin-bottom:6px}
+.pin p{font-size:15px;color:#334155}
+.pin .chk{display:grid;gap:4px;text-align:left;list-style:none;margin:12px 0;font-weight:700;font-size:15px}
+.pin .cod{font-size:13px;font-weight:900;color:var(--g);margin:6px 0 12px}
+.pno{display:block;margin-top:12px;color:var(--mut);font-size:13px;background:none;border:0;text-decoration:underline;cursor:pointer;width:100%}
 </style>
 </head>
 <body>
@@ -68,30 +82,7 @@ footer{text-align:center;font-size:12px;color:#94a3b8;padding:20px 16px 10px}
   </div>
   <div class="alert">📱 <b>Fique de olho no seu WhatsApp</b> e deixe alguém no endereço para receber. <b>Você não precisa pagar nada agora.</b></div>
 
-  <div class="band">🚚 PAGUE NA ENTREGA</div>
 
-  <section class="card up">
-    <span class="tag">🎁 OFERTA ESPECIAL SÓ NESTA PÁGINA</span>
-    <h2>Aproveite e leve mais um Aspirador de Pó Portátil</h2>
-    <p class="lead">Um para a casa e outro para o carro, ou para dar de presente. Aproveite que a entrega já está agendada.</p>
-    <img class="hero" src="../hero.webp" width="1000" height="658" loading="lazy" alt="Aspirador de pó portátil roxo sem fio">
-    <ul class="chk">
-      <li>✅ Aspirador e soprador</li>
-      <li>✅ Motor potente</li>
-      <li>✅ Bateria de longa duração</li>
-      <li>✅ Bivolt</li>
-    </ul>
-    <p class="de">De R$ 199,99</p>
-    <p class="parc">por <b>R$139,99</b></p>
-    <p class="vista">Frete grátis · <strong>pague só na entrega</strong></p>
-    <a class="btn" href="https://entrega.logzz.com.br/pay/mem7x36el/oxnro-1-unidade">Quero aproveitar a oferta</a>
-    <p class="note"><b>Você não precisa pagar nada agora.</b> O pagamento você acerta aí diretamente com o entregador na hora que ele te entregar o produto.</p>
-    <p class="urg">Últimas unidades</p>
-    <a class="no" href="#duvidas">Não, obrigado. Quero só o meu pedido.</a>
-  </section>
-
-  <h2>Veja como ele limpa em segundos 👇</h2>
-  <div class="vid"><video src="../video2.mp4" poster="../poster2.jpg" muted loop playsinline preload="none" aria-label="Vídeo do aspirador em ação"></video><button class="som" type="button">🔊 Toque para ouvir</button></div>
 
   <div class="wa" id="duvidas">
     Ficou com alguma dúvida sobre a sua entrega? Chame a nossa equipe no WhatsApp.<br>
@@ -103,18 +94,49 @@ footer{text-align:center;font-size:12px;color:#94a3b8;padding:20px 16px 10px}
 
 <a class="wafloat" href="https://wa.me/5591991198584?text=Ol%C3%A1!%20Acabei%20de%20agendar%20a%20entrega%20do%20Aspirador%20de%20P%C3%B3%20Port%C3%A1til" aria-label="Falar no WhatsApp"><svg viewBox="0 0 32 32"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.8-3.8-1.8-5.9C5 9.8 9.9 5.2 16 5.2s11 4.6 11 10.6-4.9 10.6-11 10.6zm6-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.8 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.3z"/></svg></a>
 
+
+<!-- POP-UP DE NOVA OFERTA (aparece quando a pessoa tenta sair da página) -->
+<div class="pop" id="pop" role="dialog" aria-modal="true" aria-labelledby="popt">
+  <div class="pbox">
+    <button class="x" type="button" aria-label="Fechar">×</button>
+    <div class="ptop">⚠️ ESPERA! OFERTA ESPECIAL PRA VOCÊ</div>
+    <img src="../escova.webp" width="800" height="396" alt="Escova de Limpeza Elétrica BrilhaPlus com refis">
+    <div class="pin">
+      <h3 id="popt">Escova de Limpeza Elétrica BrilhaPlus</h3>
+      <p>Já que você vai receber o seu aspirador, deixe também o banheiro, a cozinha e os azulejos brilhando, sem esforço.</p>
+      <ul class="chk">
+        <li>✅ Gira sozinha, sem fazer força</li>
+        <li>✅ Vem com vários refis de limpeza</li>
+        <li>✅ Limpa pia, box, azulejo e panelas</li>
+      </ul>
+      <p class="cod">🚚 PAGUE SÓ NA ENTREGA · FRETE GRÁTIS</p>
+      <!-- COLOQUE AQUI O LINK DA NOVA OFERTA (troque o # pelo link da Logzz) -->
+      <a class="btn" id="popbtn" href="#">Quero aproveitar a oferta</a>
+      <button class="pno" type="button">Não, obrigado</button>
+    </div>
+  </div>
+</div>
+
 <script>
-document.querySelectorAll('.vid').forEach(function(box){
-  var v=box.querySelector('video'), b=box.querySelector('.som');
-  if('IntersectionObserver' in window){
-    new IntersectionObserver(function(es){es.forEach(function(e){
-      if(e.isIntersecting){v.preload='auto';var p=v.play();if(p&&p.catch)p.catch(function(){});} else v.pause();
-    });},{threshold:.4}).observe(v);
-  } else { v.preload='auto'; v.play(); }
-  function som(){ v.muted=!v.muted; if(!v.muted){v.currentTime=0;v.play();} b.textContent=v.muted?'🔊 Toque para ouvir':'🔇 Tirar som'; }
-  b.addEventListener('click',function(e){e.stopPropagation();som();});
-  v.addEventListener('click',som);
-});
+// Pop-up de saída: aparece 1 vez quando a pessoa tenta sair
+(function(){
+  var pop=document.getElementById('pop'), shown=false;
+  function open(){ if(shown) return; shown=true; pop.classList.add('on'); }
+  function close(){ pop.classList.remove('on'); }
+  pop.querySelector('.x').onclick=close;
+  pop.querySelector('.pno').onclick=close;
+  pop.addEventListener('click',function(e){ if(e.target===pop) close(); });
+  // Computador: mouse saindo pelo topo da tela
+  document.addEventListener('mouseout',function(e){ if(!e.relatedTarget && e.clientY<10) open(); });
+  // Celular: botão "voltar"
+  try{ history.pushState({p:1},''); }catch(e){}
+  window.addEventListener('popstate',function(){ if(!shown){ open(); try{ history.pushState({p:1},''); }catch(e){} } });
+  // Celular: rolou rápido para cima (gesto de quem vai sair)
+  var lastY=window.scrollY, lastT=Date.now();
+  window.addEventListener('scroll',function(){ var y=window.scrollY,t=Date.now(); if(lastY-y>120 && t-lastT<250 && y<200) open(); lastY=y; lastT=t; },{passive:true});
+  // Garantia: se não saiu, mostra depois de 25 segundos
+  setTimeout(open,25000);
+})();
 </script>
 </body>
 </html>
