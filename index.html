@@ -151,7 +151,7 @@ document.querySelectorAll('.yt').forEach(function(el){
   var id=el.dataset.id;
   el.style.backgroundImage='url(https://i.ytimg.com/vi/'+id+'/hqdefault.jpg)';
   el.addEventListener('click',function(){
-    el.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&playsinline=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="Vídeo do aspirador"></iframe>';
+    el.innerHTML='<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&playsinline=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="Vídeo do aspirador"></iframe>';
   },{once:true});
 });
 // Repassa UTMs/gclid do anúncio para o checkout da Logzz
